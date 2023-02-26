@@ -1,18 +1,38 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+	<title>Trang đăng nhập</title>
 </head>
 <body>
-    <label>Tên đăng nhập</label>
-    <input type="text" name="" id="txtUserName">
-    </br>
-    <label>Mật Khẩu</label>
-    <input type="text" name="" id="txtpassword">
-    <br/>
-    <button>dang nhap</button>
+	<form>
+		<label for="username">Tên đăng nhập:</label>
+		<input type="text" id="txtUsername" name="username"><br>
+
+		<label for="password">Mật khẩu</label>
+		<input type="password" id="txtpassword" name="password"><br>
+
+		<input type="button" value="Đăng nhập" onclick="validate()">
+	</form>
+
+
+	<script>
+		function validate() {
+			var username = document.getElementById("txtUsername").value;
+			var password = document.getElementById("txtpassword").value;
+
+			if (username == "" || password == "") {
+				document.getElementById("message").innerHTML = "Vui lòng nhập tên đăng nhập và mật khẩu";
+				return false;
+			}
+
+			if (username == "admin" && password == "admin") {
+				window.location.href = "TrangChu.html"; 
+				return true;
+			} else {
+				document.getElementById("message").innerHTML = "Tên đăng nhập hoặc mật khẩu không đúng";
+				return false;
+			}
+		}
+	</script>
 </body>
 </html>
